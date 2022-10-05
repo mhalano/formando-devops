@@ -8,8 +8,8 @@ resource "kind_cluster" "default" {
     node {
       role = "worker"
       kubeadm_config_patches = [
-        "kind: InitConfiguration\nnodeRegistration:\n  kubeletExtraArgs:\n    node-labels: \"role=infra\"\n"
-        "kind: InitConfiguration\nnodeRegistration:\n  kubeletExtraArgs:\n    taints:\n    - effect: \"NoSchedule\"\n      key: \"dedicated\"\n      value: \"infra\"\n"
+        "kind: JoinConfiguration\nnodeRegistration:\n  kubeletExtraArgs:\n    node-labels: \"role=infra\"\n",
+        "kind: JoinConfiguration\nnodeRegistration:\n  taints:\n    - effect: \"NoSchedule\"\n      key: \"dedicated\"\n      value: \"infra\"\n"
       ]
     }
 
