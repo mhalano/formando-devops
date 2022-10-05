@@ -67,3 +67,11 @@ Nota:
 ## 4. Assumindo recursos
 
 Descreva abaixo como você construiria um `resource` terraform a partir de um recurso já existente, como uma instância `ec2`.
+
+Preciso começar criando um código no Terraform que tenha as caracteristicas da instância que quero, como size e AMI ID.
+Após isso preciso usar o comando `terraform import identificador_tf instância_id`, onde identificador_tf é o identificador único
+dentro do Terraform, no caso da instância da AWS será algo como aws_instance.nome_unico.
+Se não souber todas as caracteristicas posso consultar com `terraform state show identificador_tf` para ver o que foi importado
+e escrever o código de acordo. Pode-se usar o plan para ver o _drift_ entre o código e a instância real, mas não se deve usar o
+apply até que esteja pronto com risco de modificar a máquina que vai ficar igual ao código. Normalmente isso é o ideal, mas já
+que a máquina foi importada o estado do código atual pode não ser o que se deseja para a instância.
