@@ -57,7 +57,7 @@ Hello World in Python!
 
 5. `docker run --cpus 0.5 -d --memory 128M nginx`
 
-6. docker {container,image,network,etc.} prune
+6. `docker system prune`
 
 7. Essa informação aparece no Docker Hub: https://hub.docker.com/layers/library/ubuntu/latest/images/sha256-a8fe6fd30333dc60fc5306982a7c51385c2091af1e0ee887166b40a905691fd0?context=explore
 
